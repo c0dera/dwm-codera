@@ -3,18 +3,19 @@
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 15;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 25;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 15;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 25;       /* vert outer gap between windows and screen edge */
 static const unsigned int swallowfloating = 1;
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 30;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int vertpad            = 8;       /* vertical padding of bar */
-static const int sidepad            = 8;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Iosevka:size=12" };
+static const int sidepad            = 6;       /* horizontal padding of bar */
+static const char *fonts[]          = { "Iosevka:size=12",
+                                        "FontAwesome:size=14",};
 static const char dmenufont[]       = "Iosevka:size=12";
 static const char nord0[]       = "#2e3440";
 static const char nord1[]       = "#3b4252";
@@ -35,7 +36,7 @@ static const char nord15[]        = "#b48ead";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { nord4, nord0, nord0 },
-	[SchemeSel]  = { nord8, nord3,  nord1  },
+	[SchemeSel]  = { nord6, nord10,  nord1  },
 };
 
 /* tagging */
@@ -47,14 +48,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       0,           1,       0,      0           -1 },
-  { "Alacritty",  NULL,   NULL,     1 << 1,   0,     1,     0   -1 },
-  { "trayer",     NULL,   NULL,    ~0,   0,     0,    0,      -1},
-  { "slstatus",   NULL,   NULL,    ~0,   0,       0,      0,     -1},
-  { "Steam",    NULL,       NULL,       1 << 2,            1,        0,         0,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 0,       0,        1,         0,           -1 },
-	{ "qutebrowser",  NULL,       NULL,       1 << 0,       0,        1,       0,           -1 },
+	/* class     instance  title        tags mask      isfloating     isterminal      noswallow      monitor */
+	{ "Gimp",       NULL,   NULL,       0,              1,            0,               0,           -1 },
+  { "Alacritty",  NULL,   NULL,       1 << 1,         0,            1,               0,           -1 },
+  { "trayer",     NULL,   NULL,       ~0,             0,            0,               0,           -1 },
+  { "slstatus",   NULL,   NULL,       ~0,             0,            0,               0,           -1 },
+  { "Steam",      NULL,   NULL,       1 << 2,         1,            0,               0,           -1 },
+	{ "Firefox",    NULL,   NULL,       1 << 0,         0,            1,               0,           -1 },
+	{ "qutebrowser",  NULL, NULL,       1 << 0,         0,            1,               0,           -1 },
 };
 
 /* layout(s) */
